@@ -4,7 +4,7 @@ typedef struct lista
   float info;
   struct lista *prox;
 } Lista;
-typedef struct lista Lista;
+
 /* estrutura da pilha */
 typedef struct pilha
 {
