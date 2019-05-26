@@ -14,8 +14,7 @@ void pilha_push(Pilha *p, float v)
   printf("\n\nTentando inserir o valor %.2f na pilha que jah possui %d elementos (aceita no maximo % d elementos)\n ", v, p->n, N);
   if (p->n == N)
   {
-    printf("\n\n*** Capacidade da pilha estourou! Vc nao pode inserir mais do que %d elementos\n\n",
-           N);
+    printf("\n\n*** Capacidade da pilha estourou! Vc nao pode inserir mais do que %d elementos\n\n", N);
     system("pause");
     exit(1);
   }
@@ -47,4 +46,22 @@ float pilha_pop(Pilha *p)
 void pilha_libera(Pilha *p)
 {
   free(p);
+}
+
+void pilha_imprime(Pilha *p)
+{
+  int i;
+  if (!pilha_vazia(p))
+    for (i = p->n - 1; i >= 0; i--)
+      printf("\n\tPilha[%d] = %.2f", i, p->vet[i]);
+  else
+    printf("\nNao ha como imprimir a pilha, pois esta vazia\n");
+}
+
+void pilha_esvazia(Pilha *p)
+{
+  while (!pilha_vazia(p))
+  {
+    pilha_pop(p);
+  }
 }
